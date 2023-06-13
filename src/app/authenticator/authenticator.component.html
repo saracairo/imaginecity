@@ -1,0 +1,161 @@
+<mat-card class="authenticator-card">
+  <mat-card-header>
+    <mat-card-title>{{ getStateTitle() }}</mat-card-title>
+    <a href="https://gorest.co.in/consumer/login" target="_blank">
+      <button mat-flat-button
+        color="accent">
+        Get your <strong>token</strong> here!
+      </button>
+    </a>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!--
+    ======================================================
+                        LOGIN FORM
+    ======================================================
+    -->
+    <form *ngIf="isLoginState()"
+      [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+      <!-- Login Email Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          formControlName="email"
+        />
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="loginForm.controls['email'].errors
+          && loginForm.controls['email'].touched">
+          Your email is invalid
+        </mat-error>
+      </mat-form-field>
+
+
+      <!-- Login Token Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Token</mat-label>
+        <input
+          matInput
+          type="text"
+          name="token"
+          placeholder="Enter your token"
+          formControlName="token"
+        />
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="loginForm.controls['token'].errors
+          && loginForm.controls['token'].touched">
+          Your token is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Login Submit Button -->
+      <button mat-flat-button color="accent"
+        [disabled]="!loginForm.valid">
+        Enter
+      </button>
+    </form>
+
+
+    <!--
+    ======================================================
+                       REGISTER FORM
+    ======================================================
+    -->
+    <form *ngIf="isRegisterState()"
+      [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+
+      <!-- First Name -->
+      <mat-form-field appearance="outline">
+        <mat-label>Full name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="name"
+          placeholder="Your full name"
+          formControlName="name"
+        />
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Your email"
+          formControlName="email"
+        />
+        <!-- Error Message (Register Email) -->
+        <mat-error
+          *ngIf="registerForm.controls['email'].errors
+          && registerForm.controls['email'].touched">
+          Your e-mail is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Registration Gender Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select
+          matInput
+          name="gender"
+          placeholder="Gender"
+          formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Prefer not to say">Prefer not to say</mat-option>
+        </mat-select>
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="registerForm.controls['gender'].errors
+          && registerForm.controls['gender'].touched">
+          Choose a gender
+        </mat-error>
+      </mat-form-field>
+
+       <!-- Register Token Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Token</mat-label>
+          <input
+            matInput
+            type="text"
+            name="token"
+            placeholder="Enter your token"
+            formControlName="token"
+          />
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="registerForm.controls['token'].errors
+          && registerForm.controls['token'].touched">
+          Your token is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Register Submit Button -->
+      <button mat-flat-button color="accent"
+        [disabled]="!registerForm.valid">
+        Register
+      </button>
+    </form>
+
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-flat-button
+      (click)="registerClick()">
+      Create new account
+    </button>
+    <button mat-flat-button
+      (click)="loginClick()">
+      Login
+    </button>
+  </mat-card-actions>
+</mat-card>

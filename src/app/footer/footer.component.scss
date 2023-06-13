@@ -1,0 +1,19 @@
+@import 'src/styles.scss';
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include widthHeight(100%, auto);
+  .footer-container {
+    @include flexEnd(row);
+    text-align: center;
+    padding: 1.5rem 1.5rem 2rem;
+    font-size: 14px;
+    color: rgb(181, 181, 181);
+  }
+
+  @include breakpoint(sm, max) {
+    font-size: 12px;
+  }
+}

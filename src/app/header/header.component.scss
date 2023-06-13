@@ -1,0 +1,68 @@
+@import 'src/styles.scss';
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include widthHeight(100%, 5em);
+  z-index: 10;
+
+  &-content {
+    @include flexBetween(row);
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+
+  &-left, &-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: white;
+  }
+  &-left {
+    min-width: 280px;
+    padding: 0 0 0 2em;
+    // media q
+    @include breakpoint(sm, max) {
+      padding: 0 0 0 1em;
+    }
+  }
+  &-right {
+    justify-content: flex-end;
+    padding: 0 2em 0 0;
+  }
+
+  .logo {
+    position: relative;
+    @include widthHeight(100%, 100%);
+    @include flexStart(row);
+    font-size: 2em;
+    cursor: pointer;
+
+    // media q
+    @include breakpoint(sm, max) {
+      font-size: 1.5rem;
+    }
+
+    .city-icon > mat-icon {
+      @include widthHeight(40px, auto);
+      font-size: 40px;
+      margin-right: 5px;
+
+      // media q
+      @include breakpoint(sm, max) {
+        @include widthHeight(30px, auto);
+        margin-right: 3px;
+        font-size: 30px;
+      }
+    }
+  }
+
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 1.5rem;
+  }
+}
+
+

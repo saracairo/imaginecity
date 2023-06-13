@@ -1,0 +1,59 @@
+<mat-card class="new-post-card">
+  <mat-card-header>
+    <mat-card-title>Write a new post</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="newPostForm" (ngSubmit)="publishPost()">
+
+      <!-- Title -->
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          type="text"
+          name="title"
+          placeholder="Post title"
+          formControlName="title"
+        />
+        <!-- Title Error -->
+        <mat-error
+          *ngIf="newPostForm.controls['title'].errors
+          && newPostForm.controls['title'].touched">
+          Add a title
+        </mat-error>
+      </mat-form-field>
+
+
+      <!-- Post -->
+      <mat-form-field appearance="outline">
+        <mat-label>Post</mat-label>
+        <textarea class="body-input"
+          matInput
+          type="text"
+          name="body"
+          placeholder="Write something..."
+          formControlName="body">
+        </textarea>
+        <!-- Post Error -->
+        <mat-error
+          *ngIf="newPostForm.controls['body'].errors
+          && newPostForm.controls['body'].touched">
+          Your post is empty
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <!-- Publish Submit Button -->
+    <button mat-flat-button color="accent"
+      [disabled]="!newPostForm.valid">
+      Publish!
+    </button>
+    <button mat-flat-button
+      >
+      Go back
+    </button>
+  </mat-card-actions>
+</mat-card>

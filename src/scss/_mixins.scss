@@ -1,0 +1,99 @@
+/* =========================================
+              Width & Height
+========================================= */
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin minWidthHeight($min-width, $min-height) {
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+@mixin maxWidthHeight($max-width, $max-height) {
+  max-width: $max-width;
+  max-height: $max-height;
+}
+
+
+/* =========================================
+                FlexBoxes
+========================================= */
+
+@mixin flexCenter($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin flexAround($flex-direction) {
+  @include flexCenter($flex-direction);
+  justify-content: space-around;
+}
+
+@mixin flexBetween($flex-direction) {
+  @include flexCenter($flex-direction);
+  justify-content: space-between;
+}
+
+@mixin flexEvenly($flex-direction) {
+  @include flexCenter($flex-direction);
+  justify-content: space-evenly;
+}
+
+@mixin flexEnd($flex-direction) {
+  @include flexCenter($flex-direction);
+  justify-content: flex-end;
+}
+
+@mixin flexStart($flex-direction) {
+  @include flexCenter($flex-direction);
+  justify-content: flex-start;
+}
+
+
+
+/* =========================================
+              Media Queries
+========================================= */
+@import './media-queries';
+
+@mixin breakpoint($breakpoint, $direction: min) {
+
+  // controllo presenza di breakpoint nella mappa definita nel file media-queries.scss:
+  @if map-has-key($breakpoints-map, $breakpoint) {
+
+    $breakpoint-values: map-get($breakpoints-map, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    //check if we are writing styles for larger or smaller screens
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+          @content;
+      }
+    }
+    @else {
+      @media (max-width: $breakpoint-max) {
+          @content;
+      }
+    }
+
+  // use the custom value if the breakpoint is not part of the pre-defined list
+  } @else {
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+          @content;
+      }
+    }
+    @else {
+      @media (max-width: $breakpoint) {
+          @content;
+      }
+    }
+  }
+}

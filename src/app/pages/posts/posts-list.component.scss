@@ -1,0 +1,79 @@
+@import 'src/styles.scss';
+
+.spinner-container {
+  @include widthHeight(100%, 100vh);
+  @include flexCenter(column);
+}
+
+.posts-list-wrapper {
+  @include widthHeight(100%, 100%);
+  overflow-y: scroll;
+  padding: 5em 2em;
+  background-image: url("/assets/buildings-g509957886_1280.jpg");
+  background-color: rgba(25, 124, 216, 0.846);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+
+  // media q
+  @include breakpoint(sm, max) {
+    padding: 5rem 1rem;
+  }
+}
+
+.posts-container {
+  @include flexCenter(row);
+  flex-wrap: wrap;
+  margin: 1em;
+}
+
+.demo-paginator {
+  width: 600px;
+}
+
+
+nav {
+  @include flexCenter(row);
+  gap: 20px;
+  margin: 0 auto 25px;
+
+  .page-title {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+  }
+
+
+
+  .nav-button {
+    @include widthHeight(auto, 56px);
+    font-size: 18px;
+  }
+}
+
+.posts-paginator {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.965);
+  padding: .5rem .5rem 1.2rem;
+}
+
+
+
+.new-post-window-container {
+  background-color: rgba(22, 44, 71, 0.584);
+  position: absolute;
+  z-index: 100;
+  padding: 6rem;
+  @include widthHeight(100%, 100%);
+  @include flexCenter(row);
+  color: black;
+  z-index: 300;
+
+  @include breakpoint(sm, max) {
+    padding: 1rem;
+  }
+}

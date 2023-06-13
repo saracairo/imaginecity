@@ -1,0 +1,22 @@
+<div class="home-page">
+  <main class="home-page-landing">
+
+    <section class="welcome-container">
+      <div class="text-container">
+        <h1>Welcome to <span>ImagineCity</span></h1>
+        <p>Share your earthly ideas!</p>
+        <button mat-flat-button
+          (click)="getStartedClick()"
+          color="accent">
+          Get started
+        </button>
+      </div>
+    </section>
+
+    <section *ngIf="shouldOpen"
+      class="authenticator-container">
+      <app-authenticator></app-authenticator>
+    </section>
+
+  </main>
+</div>

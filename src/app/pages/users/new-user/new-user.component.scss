@@ -1,0 +1,46 @@
+@import 'src/styles.scss';
+
+
+.new-user-card {
+  @include widthHeight(28em, auto);
+  padding: .5em;
+  background-color: rgb(255, 255, 255);
+
+  mat-card {
+    &-title {
+    font-size: 1.5em;
+    }
+    &-header {
+      @include flexBetween(row);
+      margin-bottom: 1rem;
+      button {
+        @include widthHeight(170px, 40px);
+        font-family: $main-font;
+        color: white;
+      }
+    }
+  }
+
+  mat-form-field {
+    @include widthHeight(100%, auto);
+    box-sizing: border-box;
+    margin-bottom: 0 0 .8rem;
+  }
+
+  mat-error {
+    font-size: .8rem;
+    margin-top: -4px;
+  }
+
+  button {
+    @include widthHeight(100%, 40px);
+    margin: 0;
+    display: block;
+  }
+
+  mat-card-actions {
+    button {
+      background-color: transparent;
+    }
+  }
+}

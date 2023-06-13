@@ -1,0 +1,68 @@
+<div *ngIf="loading" class="spinner-container">
+  <mat-spinner color="accent"></mat-spinner>
+</div>
+
+<div *ngIf="!loading && haveUsers"
+  class="users-list-wrapper">
+
+  <nav>
+    <button mat-fab
+      routerLink="/users-list"
+      matTooltip="Users"
+      color="accent"
+      aria-label="Example icon button with a home icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-fab
+      routerLink="/posts-list"
+      matTooltip="Posts"
+      color="accent"
+      aria-label="Example icon button with a home icon">
+      <mat-icon>text_snippet</mat-icon>
+    </button>
+    <button mat-fab
+      (click)="getStartedClick()"
+      matTooltip="Add new user"
+      color="accent"
+      aria-label="Example icon button with a home icon">
+      <mat-icon>person_add_alt_1</mat-icon>
+    </button>
+  </nav>
+
+  <!-- Finestra creazione nuovo utente -->
+  <div *ngIf="shouldOpen">
+    <app-new-user></app-new-user>
+  </div>
+
+  <div class="users-container">
+
+    <mat-card class="user-card"
+      *ngFor="let user of users"
+      routerLink="user/{{ user.id }}">
+      <div class="user-avatar">
+        <mat-icon
+          [ngClass]="{ active: user.status === 'active',
+            inactive: user.status === 'inactive' }">
+          {{ user.gender === "male" ? "face" : "face_3" }}
+        </mat-icon>
+      </div>
+      <h2 class="user-name">{{ user.name }}</h2>
+      <p class="user-email">{{ user.email }}</p>
+    </mat-card>
+
+  </div>
+
+  <mat-paginator #paginator
+    class="users-paginator"
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [disabled]="disabled"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+    [hidePageSize]="hidePageSize"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+
+</div>

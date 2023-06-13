@@ -1,0 +1,90 @@
+<mat-card class="new-user-card">
+  <mat-card-header>
+    <mat-card-title>Register a new user</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <form [formGroup]="newUserForm" (ngSubmit)="submitNewUser()">
+
+      <!-- First Name -->
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="name"
+          placeholder="Full name"
+          formControlName="name"
+        />
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Your email"
+          formControlName="email"
+        />
+        <!-- Error Message (Register Email) -->
+        <mat-error
+          *ngIf="newUserForm.controls['email'].errors
+          && newUserForm.controls['email'].touched">
+          Your e-mail is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Registration Gender Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select
+          matInput
+          name="gender"
+          placeholder="Gender"
+          formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Prefer not to say">Prefer not to say</mat-option>
+        </mat-select>
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="newUserForm.controls['gender'].errors
+          && newUserForm.controls['gender'].touched">
+          Choose a gender
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Register Token Field -->
+      <mat-form-field appearance="outline">
+        <mat-label>Token</mat-label>
+          <input
+            matInput
+            type="text"
+            name="token"
+            placeholder="Enter your token"
+            formControlName="token"
+          />
+        <!-- Error Message -->
+        <mat-error
+          *ngIf="newUserForm.controls['token'].errors
+          && newUserForm.controls['token'].touched">
+          Your token is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button
+        type="submit"
+        color="accent"
+        [disabled]="!newUserForm.valid">
+        <i class="bi bi-person-plus"></i>
+        Add user
+      </button>
+
+    </form>
+
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,57 @@
+@import '/src/styles.scss';
+
+.post-card {
+  @include maxWidthHeight(800px, auto);
+  opacity: .9;
+  padding: 1.5rem;
+  margin-bottom: 20px;
+  font-size: 20px;
+
+  // media q
+  @include breakpoint(sm, max) {
+    font-size: 18px;
+    width: 320px;
+  }
+
+  mat-card-header {
+    padding: 0;
+    mat-card-title {
+      font-weight: bold;
+      color: rgb(241, 56, 114);
+      margin-bottom: 5px;
+    }
+    mat-card-subtitle {
+      color: grey;
+      margin-bottom: 10px;
+    }
+  }
+
+  mat-card-content {
+    padding: 0;
+    p {
+      margin-bottom: 10px;
+    }
+    .comments-section {
+      @include widthHeight(100%, auto);
+      &-title {
+        font-size: 18px;
+        color: rgb(241, 56, 114);
+        margin: 10px 0;
+      }
+      &-form {
+        @include widthHeight(100% !important, auto);
+        margin-top: 20px;
+        button {
+          margin-right: 10px;
+        }
+      }
+      .no-comments {
+        color: grey;
+        font-size: .9rem;
+      }
+    }
+  }
+}
+
+
+

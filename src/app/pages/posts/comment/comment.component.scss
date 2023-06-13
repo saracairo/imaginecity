@@ -1,0 +1,98 @@
+@import 'src/styles.scss';
+
+mat-card-title{
+  font-weight: 600;
+}
+mat-card{
+  border-radius: 0;
+}
+
+.comment-container {
+  margin-bottom: 10px;
+}
+
+.comment-block {
+	width: 65%;
+	height: 100%;
+
+	margin: 0 auto;
+	padding: 10px;
+}
+
+
+.user-comment {
+  list-style-type: none;
+}
+
+.user-avatar {
+  @include widthHeight(64px, 65px);
+	display: inline-block;
+	vertical-align: middle;
+  cursor: pointer;
+  mat-icon {
+    @include widthHeight(5rem !important, 5rem !important);
+    @include flexCenter(row);
+    font-size: 3rem;
+    align-self: center;
+    &::before {
+      width: 0.4rem;
+      height: 0.4rem;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+.comment-body {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 75px);
+  min-height: 65px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: .9rem;
+  color: #555;
+  background-color: white;
+  border-bottom: 2px solid rgb(180, 180, 180);
+  .user-name {
+    margin-bottom: 7px;
+  }
+}
+
+.comment-toolbar {
+  width: 100%;
+  @include flexBetween(row);
+
+  ul {
+    list-style-type: none;
+    padding-left: 75px;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      padding: 5px;
+      font-size: .7rem;
+      color: rgb(182, 182, 182);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .comment-details {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .comment-tools {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    li {
+      &:hover {
+        color: grey;
+      }
+    }
+  }
+}

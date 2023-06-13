@@ -1,0 +1,43 @@
+<div class="comment-container">
+
+  <div class="user-avatar"
+    routerLink="user/{{ user.id }}">
+    <i class="bi bi-person"
+      style="font-size: 4rem; color: rgb(241, 56, 114)">
+    </i>
+  </div>
+
+  <div class="comment-body">
+    <p class="user-name">
+      <strong>{{ comment.name }}</strong>
+    </p>
+    <p>{{ comment.body }}</p>
+  </div>
+
+  <!-- comments toolbar -->
+  <div class="comment-toolbar">
+
+    <!-- date & time -->
+    <div class="comment-details">
+      <ul>
+        <li><i class="bi bi-clock-fill"></i> 19:23</li>
+        <li><i class="bi bi-calendar2-day-fill"></i> 14/06/2023</li>
+        <li><i class="fa fa-pencil"></i>
+          <span class="user">{{ user.name }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- share, reply, love -->
+    <div class="comment-tools">
+      <ul>
+        <li><i class="bi bi-heart-fill">
+          <span class="love_amt"> 12</span>
+        </i></li>
+        <li><i class="bi bi-reply-fill"></i></li>
+        <li><i class="bi bi-share-fill"></i></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

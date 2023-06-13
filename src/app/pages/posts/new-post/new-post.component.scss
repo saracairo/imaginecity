@@ -1,0 +1,45 @@
+@import 'src/styles.scss';
+
+.new-post-card {
+  @include widthHeight(28em, auto);
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+
+  @include breakpoint(sm, max) {
+    @include widthHeight(100%, 100%);
+  }
+
+  mat-card {
+    &-title {
+    font-size: 1.5em;
+      @include breakpoint(sm, max) {
+        font-size: 1.3rem;
+      }
+    }
+    &-header {
+      @include flexBetween(row);
+      margin-bottom: 1rem;
+      button {
+        @include widthHeight(170px, 40px);
+        font-family: $main-font;
+        color: white;
+      }
+    }
+  }
+
+  mat-form-field {
+    @include widthHeight(100%, auto);
+    box-sizing: border-box;
+    margin-bottom: 0 0 .8rem;
+
+    .body-input {
+      @include widthHeight(100%, 200px);
+    }
+  }
+
+  button {
+    @include widthHeight(100%, 40px);
+    margin: 0;
+    display: block;
+  }
+}

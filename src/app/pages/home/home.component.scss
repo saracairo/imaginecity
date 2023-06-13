@@ -1,0 +1,97 @@
+@import 'src/styles.scss';
+
+.home-page {
+  @include widthHeight(100%, 100%);
+  overflow-x: hidden;
+
+  &-landing {
+    position: relative;
+    @include widthHeight(100%, 100%);
+    overflow-y: hidden;
+    min-height: 800px; // rende responsivo su tutte le dimensioni schermo
+    background-image: url("/assets/martin-baron-JhjjnqGk_Bk-unsplash.jpg");
+    background-color: rgba(0, 0, 0, 0.489);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+}
+
+.welcome-container {
+  @include widthHeight(100%, 100%);
+  @include flexStart(row);
+
+  // media q
+  @include breakpoint(sm, max) {
+    @include widthHeight(100%, 100%);
+    padding: 2rem;
+    font-size: 10px;
+  }
+
+  .text-container {
+    @include maxWidthHeight(700px, 700px);
+    @include flexEnd(column);
+    gap: 3rem;
+    color: white;
+    text-align: right;
+    padding: 3rem 1rem;
+
+    @include breakpoint(sm, max) {
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      @include breakpoint(sm, max) {
+        font-size: 2.5rem;
+      }
+      span {
+        font-size: 4.5rem;
+        font-weight: 700;
+        @include breakpoint(sm, max) {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    p {
+      align-self: flex-end;
+      font-size: 2rem;
+
+      @include breakpoint(sm, max) {
+        font-size: 1.5rem;
+      }
+    }
+
+    button {
+      font-family: $main-font;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 1em;
+      align-self: flex-end;
+
+      @include breakpoint(sm, max) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+
+}
+
+.authenticator-container {
+  background-color: rgba(22, 44, 71, 0.584);
+  position: absolute;
+  z-index: 100;
+  padding: 6rem;
+  @include widthHeight(100%, 100%);
+  @include flexEnd(row);
+  color: black;
+
+  @include breakpoint(sm, max) {
+    padding: 1rem;
+  }
+}
