@@ -6,9 +6,16 @@
   padding: .5em;
   background-color: rgb(255, 255, 255);
 
+   @include breakpoint(sm, max) {
+    @include widthHeight(100%, 100%);
+  }
+
   mat-card {
     &-title {
     font-size: 1.5em;
+      @include breakpoint(sm, max) {
+        font-size: 1.3rem;
+      }
     }
     &-header {
       @include flexBetween(row);
@@ -25,11 +32,10 @@
     @include widthHeight(100%, auto);
     box-sizing: border-box;
     margin-bottom: 0 0 .8rem;
-  }
 
-  mat-error {
-    font-size: .8rem;
-    margin-top: -4px;
+    .body-input {
+      @include widthHeight(100%, 200px);
+    }
   }
 
   button {
