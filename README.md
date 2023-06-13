@@ -1,4 +1,7 @@
 <div align="center">
+
+  # WORK IN PROGRESS
+  ### social network for NTTData & Start2impact University
   
   <!-- PROJECT LOGO -->
   <a href="https://imaginecity.netlify.app/">
@@ -20,7 +23,7 @@
   [![Issues][issues-shield]][issues-url]
   [![License][license-shield]][license-url]
   [![LinkedIn][linkedin-shield]][linkedin-url] <br />
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/31f74770-10f4-4e28-b747-c609e086a034/deploy-status)](https://app.netlify.com/sites/retr0counter/deploys)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/d62f2819-d02e-4f22-ba4b-9afff53c05fc/deploy-status)](https://app.netlify.com/sites/imaginecity/deploys)
 
 </div>
 
